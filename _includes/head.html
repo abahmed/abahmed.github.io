@@ -17,15 +17,13 @@
   {% endfor %}
   {% else %}
   <meta name="keywords"  content="{{ site.keywords | split:' ' | join: ', ' }}">
+  <meta property="og:type" content="website">
   {% endif %}
 
   {% seo %}
 
   <!-- Favicon -->
   <link href="/assets/favicon.ico" rel="icon" type="image/ico">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ page.url | prepend: site.url }}">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
