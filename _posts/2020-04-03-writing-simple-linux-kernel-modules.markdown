@@ -4,7 +4,7 @@ title:  Writing Simple Linux Kernel Modules
 description: Write your first Linux Kernel module
 date:   2020-04-04 21:00:00 +0200
 categories: Linux Kernel
-tags: linux kernel module c development lkm extension introduction hello world ubuntu headers make ko rmmod insmod modinfo
+tags: linux kernel module c development lkm extension introduction hello world ubuntu headers make ko rmmod insmod modinfo debian mint
 permalink: /article/:title
 comments: true
 uuid: 080f2106-f03d-4941-9555-547e4378ef33
