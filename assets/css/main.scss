@@ -1,0 +1,48 @@
+---
+sitemap:
+  exclude: 'yes'
+---
+@charset "utf-8";
+
+$base-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 19px;
+$base-font-weight: 400;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.55;
+
+$spacing-unit: 30px;
+
+$grey-color: #828282;
+
+// Width of the content area
+$content-width: 1000px;
+
+$on-iphone-se: 320px;
+$on-mobile: 560px;
+$on-laptop: 1000px;
+
+
+// Use media queries like this:
+// @include media-query($on-mobile) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "shared",
+        "base",
+        "site",
+        "blog",
+        "archive",
+        "syntax-highlighting",
+        "syntax-highlighting-dark"
+;

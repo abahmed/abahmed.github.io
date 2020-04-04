@@ -1,0 +1,291 @@
+:root {
+  --tint-color: #1A25FB;
+  --text-color: #353535;
+  --text-color-lighten: #737373;
+  --text-color-lighten-secondary: #424242;
+  --background-color: #FDFDFD;
+  --background-color-secondary: #F7F7F7;
+  --background-highlighted-color: rgba(87, 157, 248, 0.25);
+  --separator-color: #DDDDDD;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tint-color: #579df8; 
+        --tint-color-lighten: #67A6F8;
+        --text-color: #DFDFDF;
+        --text-color-lighten-secondary: #C4C4C4;
+        --background-color: #2C2A28;
+        --background-color-secondary: #211f1e;
+        --background-highlighted-color: rgba(87, 157, 248, 0.25);
+        --separator-color: #3C3A38; /* #0C0A08; */
+    }
+}
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure, main, aside {
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Basic styling
+ */
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    @include media-query($on-mobile) {
+        font-size: $base-font-size - 1;
+    }
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-top: $spacing-unit / 2;
+}
+
+p,
+%vertical-rhythm {
+    margin-top: $spacing-unit / 2;
+}
+
+
+h1, h2, h3
+%vertical-rhythm {
+    margin-top: $spacing-unit * 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 58px;
+    @include media-query($on-mobile) {
+        font-size: 40px;
+    }
+}
+
+main {
+    margin: auto;
+    max-width: 740px;
+    float: none;
+
+    @include media-query($on-mobile) {
+        max-width: 100%;
+    }
+}
+
+aside {    
+    position: -webkit-sticky !important; /* added to make toc scroll with page */
+    position: sticky !important; /* added to make toc scroll with page */
+    float: right !important; /* added to make toc scroll with page */
+    top: 1 * $spacing-unit;
+    right: 0;
+    width: 190px;
+    margin-right: -1 * 120px;
+    margin-top: 1.5 * $spacing-unit;
+
+    @include media-query(1260px) {
+        display: none;
+    }
+
+    h4 {
+        margin-top: 0;
+    }
+}
+
+sup {
+    line-height: 1.0;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+ul, ol {
+    margin-left: $spacing-unit;
+    @include media-query($on-mobile) {
+        margin-left: 0.75 * $spacing-unit;
+    }
+}
+
+li > ul {
+    margin-top: 0;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+a {
+    color: var(--tint-color);
+    text-decoration: none;
+
+    &:visited {
+        color: var(--tint-color);
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+table {
+    margin: 0.25 * $spacing-unit 0;
+}
+
+blockquote {
+    background-color: var(--background-color-secondary);
+    border-left: 6px solid var(--separator-color);
+    border-radius: 4px;
+
+    padding: 0.4 * $spacing-unit 0.5 * $spacing-unit;
+    padding-top: 2.5px;
+
+    margin: $spacing-unit * 0.75 0;
+
+    pre {
+        border: 0;
+        margin: 0;
+    }
+}
+
+pre,
+code {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height};
+    font-family: 'SF Mono', Menlo, monospace, Courier, Consolas, "Liberation Mono", monospace;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+}
+
+code.highlighter-rouge {
+    padding: 0.1 * $spacing-unit 0.2 * $spacing-unit;
+    border-radius: 8px;
+    background-color: var(--background-color-secondary);
+    border: 0.5px solid var(--separator-color);
+}
+
+strong code {
+    font-weight: 600;
+}
+
+pre {
+    font-size: 15px;
+    line-height: 18px;
+    border-radius: 8px;
+    background-color: var(--background-color-secondary);
+    border: 0.5px solid var(--separator-color);
+
+    padding: 0.5 * $spacing-unit;
+    overflow-x: auto;
+
+    margin-right: -(0.5 * $spacing-unit);
+    margin-left: -(0.5 * $spacing-unit);
+
+    margin-top: $spacing-unit * 0.5;
+    margin-bottom: $spacing-unit * 0.5;
+
+    @include media-query($on-mobile) {
+        border-radius: 0;
+    }
+
+    > code {
+        font-size: 15px;
+        @include media-query($on-mobile) {
+            font-size: 14px;
+            letter-spacing: -0.5px;
+        }
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.wrapper {
+    max-width: -webkit-calc(#{$content-width});
+    max-width:         calc(#{$content-width});
+    margin-right: auto;
+    margin-left: auto;
+    @extend %clearfix;
+
+    @include media-query($on-mobile) {
+        max-width: -webkit-calc(#{$content-width});
+        max-width:         calc(#{$content-width});
+    }
+}
+
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.icon {
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey-color;
+        }
+    }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+@media print {
+    main {
+        max-width: 100%;
+    }   
+    aside {
+        display: none;
+    }
+    .PostFooter {
+        display: none;
+    }
+}

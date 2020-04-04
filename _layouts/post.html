@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<aside class="Sidebar Any-card">
+  <div>
+      <h4>Contents</h4>
+      {% include toc.html html=content class='TableOfContents' item_class='TOCItem%level%' h_max=6 %}
+  </div>
+</aside>
+
+<main>
+
+{% assign number_of_words = content | strip_html | number_of_words %}
+
+{% if page.minutes %}
+{% assign minutes = page.minutes %}
+{% else %}
+{% assign minutes = number_of_words | divided_by: 180 | divided_by:5 | round | times:5 %}
+{% if minutes < 5 %}{% assign minutes = 5 %}{% endif %}
+{% endif %}
+
+<article class="Any-horInsets" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div style="float: right">
+      
+  </div>
+
+  <header class="PostHeader">
+      <h1 class="PostTitle" itemprop="name headline">{{ page.title }}</h1>
+      <p class="PostMeta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time> &nbsp;&nbsp;<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAAmJLR0QA/4ePzL8AAAORSURBVFjDpZjPS1VBFMc/gj6hNvnU1LQ2pQWS9QcEFbTRItQks11gJv6kpDRa1MYy0F62jDZBobRpVeIuCDWNSqhFYEVZbfIHpZlp9k4L586773nfnbk2sxnmfs858+P8+M4Fc8vlJL0MMsEsyywzywSD9FJDLv/ZMmnhOeLTx2gmc33KC7jJgq9yp/8kQn4w5Wm0Mm+l3OkLXCHdVv1OxuOEVximk0qKySCNNDIoppJORvgbh3tFkY36Y3Frn6TdZ/sFdPDZhZ6jwqS+nhUN/0YdIeOCQtQz5dptnb/62GruE074uoFDHKLA09v6XJJ1yQ/HWf0ytR7f9yAI55JIn2FZ76Lc+2rntUeUeqrYhyBcTrr/Mu3WcxSuPclxvfrSpAoEodvniA/rXbwkLf5Thz7B2qTiJxCE29jd4nn3dD4/1fQ9H+E6BKHP4FX9StM8ebHJm2pymiwf0TYE4ZHBQFg7bU/MyRZMDgbAFQThqTEyGnSOUmmwRU18NoTVDQRh3CL0PimNjasTTkJuNwjeQRA+WKQbx2VGAfKIIgh/PWPU3R4gCFMWBvJVyEbJgRplbdgoNoAgLFll5FGltRp61bDTKDSkkDZ5/5rCRmBQDY2JltcKmW1hoEphH8N7NSw2Cn1UyO0WBnYr7ATMqGHYKDSrkHstDGQp7BQsqaG5tPxRyP0WBtIV9re9gRQWFXKIjUEM2B/RG50pB43LcR3RO+tLLmZSm3hIqu0l27spbHERmruk2LmpE2hXrSJ0E0+0iVs+uK5YoDmpYsSSlqW7GMSlpKgxhTgOOTrZbbU0kcJ1beKsJ2Kb4nxRctzWOgKw11at4pTH14vxp9JsWXASWdSiYkGVaw7xi9LY4JRMp+TXB+LgB/mOIPziQNx8U2LJhIiamvEt+mtbCV8RhB/sctFIp+h3e9GWPoK11ch47KoRDzS7i3tgXdB+cSagiQyuuu6uUetpS3zTvNTUsWzdb7ojOuO+SKSOUMScJr9l61Tv8Ksf7PACVLjoe31g9Y169Ssc9Wefq70/gEdl66sVopzGl+DGnlDTNFgwiHSadE0RVvzVA5TruxCEL3T45KitXNRRu3r2R202XKg9SlQaHOUaVewmTIgQYUqooouxhGfsC++r9WqptMbtw+4hHgrmFXnc0PFt+pXQs97fIpk08UzVC68eZYRGC7pgaJupJsIAb5lhiSVmeMsAEarZbBb+B1/0l/yGss7SAAAAAElFTkSuQmCC" width="15" height="15" class="Grayscale"> {{ minutes }} mins</p>
+  </header>
+
+  <div class="PostContents" onscroll="onScroll()" itemprop="articleBody">
+      {% include anchor_headings.html html=content anchorBody='#' anchorClass='Link-subtle Anchor' %}
+  </div>
+
+</article>
+
+  {% if page.disable_comments != true %}
+    <div class="Any-horInsets">
+        {%- if site.disqus_shortname -%}
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = '{{ page.url | absolute_url }}';
+            this.page.identifier = '{{ page.url | absolute_url }}';
+          };
+          (function () {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+            powered by Disqus.</a></noscript>
+        {%- endif -%}
+    </div>
+  {% endif %}
+
+</main>
+
+<script src="{{ site.url }}/assets/js/blog.js"></script>

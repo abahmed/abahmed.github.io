@@ -1,0 +1,21 @@
+title: Abdelrahman Ahmed
+author: Abdelrahman Ahmed
+email: ab@abahmed.com
+description: "Software Engineer &<br/>Open Source Enthusiast :rocket:"
+
+sass:
+  sass_dir: _sass
+  # generate social links in footer
+disqus_shortname: abahmed-com
+social_links:
+  twitter: abahmed23
+  github:  abahmed
+  linkedIn: abahmed12
+  email: ab@abahmed.com
+
+featured_posts:
+  - 7ca6cd36-1cb2-4825-93af-3c8e291b9960
+
+plugins:
+  - jemoji
+  - jekyll-seo-tag

@@ -1,0 +1,222 @@
+.Any-horInsets {
+    margin: 0 $spacing-unit;
+    @include media-query($on-mobile) {
+        margin: 0 0.5 * $spacing-unit;
+    }
+}
+
+.Any-vertInsets {
+    margin-top: 0.5 * $spacing-unit;
+    margin-bottom: 0.5 * $spacing-unit;
+}
+
+.HorDivider {
+    margin: $spacing-unit * 0.5 0 $spacing-unit 0;
+    border-top: 1px solid #e0e0e0;
+    transform: scaleY(0.5);
+    width: 100%;
+}
+
+.Any-card {
+    padding: $spacing-unit * 0.75 $spacing-unit * 0.5;
+    background: var(--background-color-secondary);
+    border: 0.5px solid var(--separator-color);
+    border-radius: 8px;
+}
+
+.Any-responsiveCard {
+    background: var(--background-color-secondary);
+    border: 0.5px solid var(--separator-color);
+    border-radius: 8px;
+
+    @include media-query($on-mobile) {
+        border-radius: 0px;
+    }
+}
+
+.Link-subtle {
+    color: var(--text-color);
+    transition: all 0.075s linear;
+    text-decoration: none;
+
+    &:visited {
+        color: var(--text-color);
+    }
+    &:hover {
+        color: var(--text-color-lighten);
+        text-decoration: none;
+    }
+}
+
+.Anchor {
+    opacity: 0;
+
+    color: lighten($grey-color, 15%);
+
+    &:visited {
+        color: lighten($grey-color, 15%);
+    }
+    &:hover {
+        color: $grey-color;
+        text-decoration: none;
+    }
+}
+
+h2:hover .Anchor,
+h3:hover .Anchor,
+h4:hover .Anchor,
+h5:hover .Anchor,
+h6:hover .Anchor {
+  opacity: 1;
+}
+
+.Grayscale {
+    filter: invert(87%) sepia(0%) saturate(58%) hue-rotate(246deg) brightness(77%) contrast(92%);
+}
+
+.HideOnMobile {
+    @include media-query($on-mobile) {
+        display: none;
+    }
+}
+
+.PrimaryButton {
+    background: var(--background-color);
+    border: 2px solid var(--tint-color);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: inline-block;
+    text-decoration: none;
+
+    @include media-query($on-iphone-se) {
+        padding: 4px 5px;
+        font-size: 16px;
+        letter-spacing: -0.5px;
+    }
+
+    p {
+        margin: 0;
+        color: var(--tint-color);
+
+        -webkit-user-select: none;  
+        -moz-user-select: none;    
+        -ms-user-select: none;      
+        user-select: none;
+    }
+}
+
+.PrimaryButton:hover, .PrimaryButton:active {
+  color: #fff;
+  border: 2px solid var(--tint-color-lighten);
+  background: var(--tint-color-lighten);
+  a {
+    color: #fff;
+  }
+  p {
+    color: #fff;
+  }
+}
+
+.FullscreenImage {
+    margin: 0.66 * $spacing-unit 0;
+
+    @include media-query($on-mobile) {
+        margin-right: -(0.5 * $spacing-unit);
+        margin-left: -(0.5 * $spacing-unit);
+    }
+
+    img {
+        background: var(--background-color-secondary);
+        border: 0.5px solid var(--separator-color);
+        border-radius: 8px;
+
+        @include media-query($on-mobile) {
+            border-radius: 0px;
+        }
+    }
+}
+
+
+.AdaptiveImage {}
+.AdaptiveImage2 {}
+
+@media (prefers-color-scheme: dark) {
+    /* Makes SVG images at least usable on Dark Mode */
+    .AdaptiveImage {
+        border-radius: 8px;
+        padding: 0.5 * $spacing-unit;
+        margin: 0.25 * $spacing-unit 0;
+        background-color: var(--text-color);
+    }
+
+    /* Specific for regex-parser and regex-grammar posts */
+    .AdaptiveImage2 {
+        border-radius: 8px;
+        padding: 0.5 * $spacing-unit;
+        margin: 0.25 * $spacing-unit 0;
+        background-color: #FFF;
+    }
+}
+
+/* CodeFund */
+
+.Any-card-cf {
+    margin-top: $spacing-unit * 0.75;
+    margin-bottom: $spacing-unit * 0.75;
+    padding: $spacing-unit * 0.5;
+    background: var(--background-color-secondary);
+    border-radius: 8px;
+    border: 0.5px solid var(--separator-color);
+    border-left: 6px solid var(--tint-color);
+}
+
+.cf-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    span {
+        font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family !important;
+        @include media-query($on-mobile) {
+            font-size: $base-font-size - 1 !important;
+        }
+    }
+    a {
+        font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family !important;
+        @include media-query($on-mobile) {
+            font-size: $base-font-size - 1 !important;
+        }
+    }
+}
+
+.cf-text {
+    span {
+        color: var(--text-color);
+    }
+}
+
+.cf-powered-by {
+    color: var(--text-color-lighten);
+    transition: all 0.075s linear;
+    text-decoration: none;
+
+    &:visited {
+        color: var(--text-color-lighten);
+    }
+    &:hover {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    /*color: var(--text-color-lighten) !important;*/
+    font-weight: 400;
+    margin-left: $spacing-unit * 0.1;
+}
+
+.emoji {
+    vertical-align: sub;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  

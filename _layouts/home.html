@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+
+<main>
+
+  <div class="Any-horInsets">
+  
+  <div class="PostPreviewList">
+  
+    <!-- Display featured posts -->
+    {% for post in site.posts %}
+      {% if site.featured_posts contains post.uuid %}
+      <div class="PostPreview PostPreview-featured">
+          {% include post-featured.html %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  
+  </div>
+    
+  <h2 class="PostLink SectionTitle">Recent Articles</h2>
+  <div class="PostPreviewList">
+  
+    <!-- Display the reset of the posts -->
+    {% for post in site.posts limit: 7 %}
+      {% unless site.featured_posts contains post.uuid %}
+      <div class="PostPreview">
+        {% include post-preview.html %}
+      </div>
+      {% endunless %}
+    {% endfor %}
+  
+  </div> <!--PostPreviewList-->
+
+  {% if site.posts.size > 7 %}
+    <a href="{{ site.url }}/archive">
+      <div class="PrimaryButton">
+          <p>See all {{ site.posts | size }} articles »</p>
+      </div>
+    </a>
+  {% endif %}
+  
+  </div>
+  
+  </main>
+  
