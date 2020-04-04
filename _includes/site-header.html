@@ -5,7 +5,7 @@
     <div class="SiteHeaderProfile">
         <div>
             <a href="{{ site.baseurl }}/">
-                <img class="SiteHeaderProfile_Avatar" src="/assets/profile.png">
+                <img class="SiteHeaderProfile_Avatar" alt = "{{ site.title }}" src="/assets/profile.jpg">
             </a>
         </div>
     
@@ -14,6 +14,7 @@
         <div class="SiteHeaderProfile_Info">
             <a class="Link-subtle" href="{{ site.baseurl }}/">
                 <h2>{{ site.title }}</h2>
+                <span class="SiteHeaderProfile_Subtitle">Software Engineer & Open Source Enthusiast</span>
             </a>
             <div class="SiteHeaderProfile_Contacts">
                     <a href="https://github.com/{{ site.social_links.github }}">GitHub</a>

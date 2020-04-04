@@ -7,7 +7,7 @@ categories: General
 tags: General
 permalink: /article/:title
 comments: true
-uuid: 7ca6cd36-1cb2-4825-93af-3c8e291b9520
+uuid: acd3992f-e06a-4bf3-aa8c-4637b3405c98
 ---
 Today, I'm starting my simple personal blog! :tada::tada::tada:
 

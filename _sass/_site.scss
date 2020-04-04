@@ -88,7 +88,7 @@
     }
 }
 .SiteHeaderProfile_Info {
-    padding-top: 17px;
+    padding-top: 2px;
     @include media-query($on-mobile) {
         padding-top: 0px;
     }
@@ -96,7 +96,8 @@
 
 .SiteHeaderProfile_Subtitle {
     color: var(--text-color-lighten);
-    font-weight: 500;
+    font-weight: 300;
+    font-size: 15px;
 
     @include media-query($on-mobile) {
         display: none;
