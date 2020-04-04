@@ -3,10 +3,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="application-name" content="{{ site.title }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow" />
+
+  {% if page.categories %}
+  <meta name="subject" content="{{ page.categories | join: ', ' }}"/>
+  <meta name="category" content="{{ page.categories | join: ', ' }}"/>
+  {% endif %}
+
+  {% if page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}"/>
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+  {% else %}
+  <meta name="keywords"  content="{{ site.keywords | split:' ' | join: ', ' }}">
+  {% endif %}
+
+  {% seo %}
+
+  <!-- Favicon -->
   <link href="/assets/favicon.ico" rel="icon" type="image/ico">
 
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | prepend: site.url }}">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -18,15 +40,4 @@
 
     gtag('config', 'UA-162766515-1');
   </script>
-
-  <meta name="robots" content="index, follow" />
-  {% if page.categories %}
-  <meta name="subject" content="{{ page.categories | join: ', ' }}"/>
-  <meta name="category" content="{{ page.categories | join: ', ' }}"/>
-  {% endif %}
-  {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}"/>
-  {% endif %}
-
-  {% seo %}
 </head>

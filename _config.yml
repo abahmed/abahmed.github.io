@@ -2,7 +2,7 @@ title: Abdelrahman Ahmed
 author: Abdelrahman Ahmed
 email: ab@abahmed.com
 description: "Software Engineer & Open Source Enthusiast"
-
+keywords: software engineer open source enthusiast blog techincal development
 sass:
   sass_dir: _sass
   # generate social links in footer
@@ -12,6 +12,10 @@ social_links:
   github:  abahmed
   linkedIn: abahmed12
   email: ab@abahmed.com
+
+twitter:
+  username: abahmed23
+  card: summary
 
 featured_posts:
   - 7ca6cd36-1cb2-4825-93af-3c8e291b9960
