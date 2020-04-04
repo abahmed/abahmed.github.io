@@ -21,11 +21,11 @@
 
   <meta name="robots" content="index, follow" />
   {% if page.categories %}
-  <meta name="subject" content="{{ page.categories }}"/>
-  <meta name="category" content="{{ page.categories }}"/>
+  <meta name="subject" content="{{ page.categories | join: ', ' }}"/>
+  <meta name="category" content="{{ page.categories | join: ', ' }}"/>
   {% endif %}
   {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags }}"/>
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}"/>
   {% endif %}
 
   {% seo %}
